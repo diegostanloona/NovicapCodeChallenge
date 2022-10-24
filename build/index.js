@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const checkoutController_1 = require("./controllers/checkoutController");
+const Checkout_1 = require("./model/Checkout");
+const price_rules = (0, checkoutController_1.getDiscounts)();
+const checkout = new Checkout_1.Checkout(price_rules);
+checkout.scan("VOUCHER");
+checkout.scan("VOUCHER");
+checkout.scan("TSHIRT");
+const price = checkout.total;
+console.log(price);
